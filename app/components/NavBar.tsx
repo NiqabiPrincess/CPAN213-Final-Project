@@ -14,7 +14,7 @@ export default function NavBar() {
             icon: "heart-outline",
             route: "/tabs/favourites",
         },
-        { name: "Recipes", icon: "book-outline", route: "/tabs/recipes" },
+        { name: "Shopping List", icon: "cart-outline", route: "/tabs/recipes" },
     ] as const;
 
     return (
