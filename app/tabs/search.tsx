@@ -1,15 +1,19 @@
-import { StyleSheet, Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import React from "react";
+import { useRouter } from "expo-router";
+
+import SearchScreen from "../../src/screens/SearchScreen";
 
 export default function Search() {
-    return (
-        <SafeAreaView style={styles.container}>
-            <Text style={styles.text}>Search Screen</Text>
-        </SafeAreaView>
-    );
-}
+  const router = useRouter();
 
-const styles = StyleSheet.create({
-    container: { flex: 1, justifyContent: "center", alignItems: "center" },
-    text: { fontSize: 20 },
-});
+  const navigation = {
+    navigate: (name: string, params?: any) => {
+      if (name === "RecipeDetails" && params?.id) {
+        router.push(`/recipe/${params.id}`);
+        return;
+      }
+    },
+  };
+
+  return <SearchScreen navigation={navigation as any} />;
+}
